@@ -23,5 +23,25 @@ void main() {
   test('supports newline as delimiter', () {
     expect(cal.add('1\n2,3'), equals(6));
   });
+
+  test('supports custom delimiter', () {
+    expect(cal.add('//;\n1;2'), equals(3));
+  });
+
+  test('throws exception for negative numbers', () {
+    expect(
+          () => cal.add('1,-2,-3'),
+      throwsA(
+        predicate(
+              (e) =>
+          e is Exception &&
+              e.toString().contains('-2') &&
+              e.toString().contains('-3'),
+        ),
+      ),
+    );
+  });
+
+  
 }
 
