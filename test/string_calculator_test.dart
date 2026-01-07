@@ -11,8 +11,17 @@ void main() {
   test('returns number itself for single number', () {
   expect(cal.add('1'), equals(1));
 });
+  
   test('returns sum of two comma separated numbers', () {
   expect(cal.add('1,5'), equals(6));
 });
+
+  test('returns sum of multiple numbers', () {
+    expect(cal.add('1,2,3,4'), equals(10));
+  });
+
+  test('supports newline as delimiter', () {
+    expect(cal.add('1\n2,3'), equals(6));
+  });
 }
 
