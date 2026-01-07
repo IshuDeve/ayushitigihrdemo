@@ -7,5 +7,9 @@ void main() {
   test('returns 0 for empty string', () {
     expect(cal.add(''), equals(0));
   });
+
+  test('returns number itself for single number', () {
+  expect(cal.add('1'), equals(1));
+});
 }
 
